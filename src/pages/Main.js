@@ -8,6 +8,10 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 const Main = () => {
+  const banner = ['A', 'B', 'C', 'D', 'E'];
+
+  console.log(banner);
+
   return (
     <Wrapper>
       <TestNavi />
