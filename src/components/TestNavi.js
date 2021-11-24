@@ -25,7 +25,7 @@ const TestNavi = () => {
         <Navi to="/login">Login</Navi>
       </li>
       <li>
-        <Navi to="/cart">Cart</Navi>
+        <Navi to="/cart?page=1">Cart</Navi>
       </li>
       <li>
         <Navi to="/info">My Info</Navi>
