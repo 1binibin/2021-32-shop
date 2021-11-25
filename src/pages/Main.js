@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
+import HeaderCp from '../components/inc/HeaderCp';
 import TestNavi from '../components/TestNavi';
 
 const Wrapper = styled.div`
@@ -8,13 +9,10 @@ const Wrapper = styled.div`
   margin: auto;
 `;
 const Main = () => {
-  const banner = ['A', 'B', 'C', 'D', 'E'];
-
-  console.log(banner);
-
   return (
     <Wrapper>
       <TestNavi />
+      <HeaderCp />
       <h1>Main</h1>
     </Wrapper>
   );
