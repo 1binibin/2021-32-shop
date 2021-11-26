@@ -4,34 +4,42 @@ import axios from 'axios';
 /** state *************/
 const state = {
   selTree: '',
-  tree: null,
+  allTree: [],
 };
 
 /** async action ******/
-export const 비동기액션 = createAsyncThunk('네임/액션명', async (매개변수) => {
-  const { data } = await axios.get('URL', { 매개변수 });
+export const getAllTree = createAsyncThunk('tree/asyncTree', async (매개변수) => {
+  const url = 'http://127.0.0.1:3100/api/tree';
+  const { data } = await axios.get(url);
+  const tree = data[0].children.map((v) => {
+    let children = v.children.map((v2) => ({ id: v2.id, title: v2.text }));
+    return { id: v.id, title: v.text, children };
+  });
   // data 가공
-  return data;
+  return tree;
 });
 
 /** reducer ***********/
-export const 슬라이스네임 = createSlice({
-  name: '네임',
+export const treeSlice = createSlice({
+  name: 'tree',
   state,
   reducers: {
-    동기액션: () => {},
+    setTree: (state, { payload }) => {
+      state.selTree = payload;
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(비동기액션.pending, (state, action) => {})
-      .addCase(비동기액션.fulfilled, (state, action) => {})
-      .addCase(비동기액션.rejected, (state, action) => {});
+      .addCase(getAllTree.fulfilled, (state, { payload }) => {
+        // 리턴값 tree 19번줄
+        state.allTree = payload;
+      })
+      .addCase(getAllTree.rejected, (state, { payload }) => {
+        console.log(payload);
+      });
   },
 });
 
 /** method ************/
-export const 사용자함수 = (state) => state.data;
-export const { 동기액션 } = 슬라이스네임.actions;
-export default 슬라이스네임.reducer;
-
-// import { 동기액션, 비동기액션, 사용자함수 } from '슬라이스';
+export const { setTree } = treeSlice.actions;
+export default treeSlice.reducer;
