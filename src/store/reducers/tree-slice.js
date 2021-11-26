@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 /** state *************/
-const state = {
+const initialState = {
   selTree: '',
   allTree: [],
 };
@@ -22,7 +22,7 @@ export const getAllTree = createAsyncThunk('tree/asyncTree', async (매개변수
 /** reducer ***********/
 export const treeSlice = createSlice({
   name: 'tree',
-  state,
+  initialState,
   reducers: {
     setTree: (state, { payload }) => {
       state.selTree = payload;
@@ -31,10 +31,12 @@ export const treeSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllTree.fulfilled, (state, { payload }) => {
+        console.log('fulfilled', payload);
         // 리턴값 tree 19번줄
         state.allTree = payload;
       })
       .addCase(getAllTree.rejected, (state, { payload }) => {
+        console.log('reject', payload);
         console.log(payload);
       });
   },
