@@ -9,22 +9,26 @@ const TitleWrap = styled.div`
   padding: 1em;
 `;
 
-function NaviCp({ data, type }) {
+const TitleWrapRel = styled(TitleWrap)`
+  position: relative;
+`;
+
+const NaviCp = ({ data, type }) => {
   return (
     <li>
       {type === 'A' ? (
         <TitleWrap>
-          <Link to="/"> SHOP </Link>
+          <Link to="/">SHOP</Link>
           <SubAllCp />
         </TitleWrap>
       ) : (
-        <TitleWrap>
-          <Link to="/"> {data.title} </Link>
+        <TitleWrapRel>
+          <Link to="/">{data.title}</Link>
           <SubCp />
-        </TitleWrap>
+        </TitleWrapRel>
       )}
     </li>
   );
-}
+};
 
 export default NaviCp;

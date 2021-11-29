@@ -2,8 +2,9 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
 export default styled;
-
 export { css };
+
+export * from './common';
 
 export const font = {
   kr: `'Noto Sans KR'`,
@@ -23,7 +24,8 @@ export const color = {
 };
 
 export const size = {
-  xl: '1339px',
+  xxl: '1599px',
+  xl: '1399px',
   lg: '1199px',
   md: '991px',
   sm: '767px',
@@ -31,11 +33,11 @@ export const size = {
 };
 
 export const media = {
-  xl: `(max-width: ${size.xl})`,
-  lg: `(max-width: ${size.lg})`,
-  md: `(max-width: ${size.md})`,
-  sm: `(max-width: ${size.sm})`,
-  xs: `(max-width: ${size.xs})`,
+  xl: ` (max-width: ${size.xl})`,
+  lg: ` (max-width: ${size.lg})`,
+  md: ` (max-width: ${size.md})`,
+  sm: ` (max-width: ${size.sm})`,
+  xs: ` (max-width: ${size.xs})`,
 };
 
 export const flex = ({ w = 'nowrap', h = 'flex-start', v = 'stretch' }) => {
