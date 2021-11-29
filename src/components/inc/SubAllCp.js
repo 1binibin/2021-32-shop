@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styled, { Container, SmallContainer, Underline } from '../../style';
+import ImageCp from './../common/ImageCp';
 
 const TitleLink = styled(Underline)`
   width: 120px;
@@ -37,12 +38,8 @@ const SubAllCp = () => {
             <TitleLink color="green">TEST</TitleLink>
           </div>
           <div>
-            <div>
-              <img src="/img/shop-banner1.jpg" alt="shop-banner" />
-            </div>
-            <div>
-              <img src="/img/shop-banner2.jpg" alt="shop-banner" />
-            </div>
+            <ImageCp maxWidth={true} src="/img/shop-banner1.jpg" className="mb-3" />
+            <ImageCp maxWidth={true} src="/img/shop-banner2.jpg" />
           </div>
         </Wrap>
       </Container>
