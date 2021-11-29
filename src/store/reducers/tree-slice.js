@@ -31,7 +31,6 @@ export const treeSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllTree.fulfilled, (state, { payload }) => {
-        console.log('fulfilled', payload);
         // 리턴값 tree 19번줄
         state.allTree = payload;
       })

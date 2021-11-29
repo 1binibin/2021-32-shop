@@ -37,7 +37,7 @@ export const media = {
   xs: `(max-width: ${size.xs})`,
 };
 
-export const flex = ({ w, h, v }) => {
+export const flex = ({ w = 'nowrap', h = 'flex-start', v = 'stretch' }) => {
   return css`
     display: flex;
     flex-wrap: ${w};
