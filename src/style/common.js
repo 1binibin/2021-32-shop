@@ -7,6 +7,10 @@ export const Container = styled.div`
   margin: auto;
 `;
 
+export const SmallContainer = styled(Container)`
+  max-width: 1232px;
+`;
+
 export const Underline = styled.div`
   &:after {
     content: '';
