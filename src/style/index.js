@@ -19,6 +19,7 @@ export const color = {
   secondary: '#FF9B6A',
   light: '#f7f7f7',
   black: '#222',
+  lightBlack: '#353535',
   success: '#34BE82',
   primary: '#396EB0',
 };
