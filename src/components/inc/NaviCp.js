@@ -23,7 +23,7 @@ const NaviCp = ({ data, type }) => {
           <TitleLink to="/" color="#333">
             SHOP
           </TitleLink>
-          <SubAllCp />
+          <SubAllCp data={data} />
         </TitleWrap>
       ) : (
         <TitleWrapRel>
