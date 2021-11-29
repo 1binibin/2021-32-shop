@@ -6,8 +6,9 @@ export default styled;
 export { css };
 
 export const font = {
-  noto: `'Noto Sans KR', sans-serif`,
-  notoSf: `'Noto Serif KR', serif`,
+  kr: `'Noto Sans KR'`,
+  krSf: `'Noto Serif KR'`,
+  en: `'Jost'`,
 };
 
 export const color = {

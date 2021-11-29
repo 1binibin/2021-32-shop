@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
+import styled, { font } from '../../style';
 import NaviCp from './NaviCp';
 
 const Wrapper = styled.ul`
   display: flex;
+  font-family: ${font.en}, ${font.kr}, sans-serif;
+  font-weight: 500;
 `;
 
 const NaviWrapCp = () => {
@@ -14,6 +15,7 @@ const NaviWrapCp = () => {
   console.log(allTree);
   return (
     <Wrapper>
+      <NaviCp data={allTree} type="A" />
       {allTree.map((v, i) => (
         <NaviCp data={v} key={i} />
       ))}
