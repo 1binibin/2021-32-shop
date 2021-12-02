@@ -13,4 +13,4 @@ const MyPageCp = () => {
   );
 };
 
-export default MyPageCp;
+export default React.memo(MyPageCp);

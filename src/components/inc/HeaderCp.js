@@ -30,4 +30,4 @@ const HeaderCp = () => {
   );
 };
 
-export default HeaderCp;
+export default React.memo(HeaderCp);

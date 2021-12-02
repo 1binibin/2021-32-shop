@@ -17,4 +17,4 @@ const MyWithdrawal = () => {
   );
 };
 
-export default MyWithdrawal;
+export default React.memo(MyWithdrawal);

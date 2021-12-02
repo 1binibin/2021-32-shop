@@ -17,4 +17,4 @@ const Pay = () => {
   );
 };
 
-export default Pay;
+export default React.memo(Pay);

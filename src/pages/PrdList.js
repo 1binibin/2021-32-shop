@@ -17,4 +17,4 @@ const PrdList = () => {
   );
 };
 
-export default PrdList;
+export default React.memo(PrdList);

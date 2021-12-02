@@ -51,4 +51,4 @@ const SubAllCp = ({ data }) => {
   );
 };
 
-export default SubAllCp;
+export default React.memo(SubAllCp);

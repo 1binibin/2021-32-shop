@@ -17,4 +17,4 @@ const MyOrder = () => {
   );
 };
 
-export default MyOrder;
+export default React.memo(MyOrder);

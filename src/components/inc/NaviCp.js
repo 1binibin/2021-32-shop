@@ -44,4 +44,4 @@ const NaviCp = ({ data, type }) => {
   );
 };
 
-export default NaviCp;
+export default React.memo(NaviCp);

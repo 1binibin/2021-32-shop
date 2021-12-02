@@ -39,4 +39,4 @@ const SubCp = ({ data }) => {
   );
 };
 
-export default SubCp;
+export default React.memo(SubCp);

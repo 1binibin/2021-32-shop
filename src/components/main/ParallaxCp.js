@@ -17,7 +17,7 @@ const ParallaxCp = () => {
     })();
   }, []);
 
-  return <Wrapper>{banner ? <BannerCp {...banner} className="mb-5" /> : ''}</Wrapper>;
+  return <Wrapper>{banner ? <BannerCp {...banner} /> : ''}</Wrapper>;
 };
 
 export default React.memo(ParallaxCp);

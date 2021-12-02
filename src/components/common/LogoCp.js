@@ -13,4 +13,4 @@ const LogoCp = ({ type = 'B' }) => {
   return <Link to="/">{type === 'B' ? <Img src={LogoImgBlack} alt="" /> : <Img src={LogoImgWhite} alt="" />}</Link>;
 };
 
-export default LogoCp;
+export default React.memo(LogoCp);

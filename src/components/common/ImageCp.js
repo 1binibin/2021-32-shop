@@ -21,4 +21,4 @@ const ImageCp = ({ src, alt = 'banner', link, width = 'auto', maxWidth = false, 
   );
 };
 
-export default ImageCp;
+export default React.memo(ImageCp);

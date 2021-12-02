@@ -17,4 +17,4 @@ const AuthLogin = () => {
   );
 };
 
-export default AuthLogin;
+export default React.memo(AuthLogin);

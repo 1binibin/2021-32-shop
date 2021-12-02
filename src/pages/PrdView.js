@@ -19,4 +19,4 @@ const PrdView = () => {
   );
 };
 
-export default PrdView;
+export default React.memo(PrdView);

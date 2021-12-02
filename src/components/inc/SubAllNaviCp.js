@@ -41,4 +41,4 @@ const SubAllNaviCp = ({ data }) => {
   );
 };
 
-export default SubAllNaviCp;
+export default React.memo(SubAllNaviCp);
