@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 
 export const Container = styled.div`
   max-width: 1632px;
@@ -27,4 +27,19 @@ export const Underline = styled.div`
       transform: scaleX(1);
     }
   }
+`;
+
+export const AnimationWrapper = styled.div`
+  animation-name: ${keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  },
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`};
+  animation-duration: 0.35s;
+  animation-fill-mode: forwards;
 `;

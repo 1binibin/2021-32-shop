@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
+export * from '@emotion/react';
 
 export default styled;
-export { css };
 
 export * from './common';
 
