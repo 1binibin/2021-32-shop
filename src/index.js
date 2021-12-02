@@ -9,6 +9,7 @@ import * as serviceWorker from './serviceWorker';
 // import './assets/css/bootstrap.min.css';
 import 'bootstrap/scss/bootstrap-utilities.scss';
 import './assets/css/base.css';
+require('dotenv').config();
 
 ReactDOM.render(
   <React.StrictMode>

@@ -9,7 +9,7 @@ const initialState = {
 
 /** async action ******/
 export const getAllTree = createAsyncThunk('tree/asyncTree', async (매개변수) => {
-  const url = 'http://127.0.0.1:3100/api/tree';
+  const url = process.env.REACT_APP_CATE_URL;
   const { data } = await axios.get(url);
   const tree = data[0].children.map((v) => {
     let children = v.children.map((v2) => ({ id: v2.id, title: v2.text }));
