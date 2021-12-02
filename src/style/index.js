@@ -20,6 +20,7 @@ export const color = {
   light: '#f7f7f7',
   black: '#222',
   lightBlack: '#353535',
+  grey: '#555',
   success: '#34BE82',
   primary: '#396EB0',
 };
