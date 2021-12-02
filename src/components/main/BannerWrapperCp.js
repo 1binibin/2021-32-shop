@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import Slider from 'react-slick';
 
 import styled from '../../style';
 import { filePath } from '../../modules/util';
 
 import BannerCp from './BannerCp';
+import { bannerApi } from './../../modules/api';
 
 const Wrapper = styled.section`
   width: 100%;
@@ -15,7 +15,11 @@ const Wrapper = styled.section`
 
 const BannerWrapperCp = () => {
   const [banner, setBanner] = useState([]);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    (async () => {
+      setBanner(await bannerApi(241));
+    })();
+  }, []);
 
   const settings = {
     dots: true,

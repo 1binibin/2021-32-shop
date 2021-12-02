@@ -4,6 +4,7 @@ import styled, { Container } from '../style';
 import HeaderCp from '../components/inc/HeaderCp';
 import BannerWrapperCp from '../components/main/BannerWrapperCp';
 import NoticeWrapperCp from './../components/main/NoticeWrapperCp';
+import ParallaxCp from '../components/main/ParallaxCp';
 
 const Wrapper = styled(Container)`
   margin: auto;
@@ -16,6 +17,7 @@ const Main = () => {
       <HeaderCp />
       <BannerWrapperCp />
       <NoticeWrapperCp />
+      <ParallaxCp />
     </Wrapper>
   );
 };
