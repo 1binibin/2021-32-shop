@@ -6,6 +6,7 @@ import ImageCp from '../common/ImageCp';
 import VideoCp from '../common/VideoCp';
 import ButtonCp from '../common/ButtonCp';
 import FavoriteCp from '../common/FavoriteCp';
+import LocationCp from './LocationCp';
 import { filePath } from '../../modules/util';
 import { Favorite } from '@mui/icons-material';
 
@@ -29,6 +30,13 @@ const Wrapper = styled.li`
     width: 97.5%;
     margin: 0 2.5% 2.5% 0;
   }
+`;
+
+const InfoWrap = styled.div`
+  padding: 1em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 `;
 
 const FavoriteWrap = styled.div`
@@ -80,6 +88,9 @@ const PrdCp = ({ title, ProductFiles }) => {
       <FavoriteWrap>
         <FavoriteCp size="1em" />
       </FavoriteWrap>
+      <InfoWrap>
+        <LocationCp location="Surf - 남성의류" />
+      </InfoWrap>
     </Wrapper>
   );
 };
