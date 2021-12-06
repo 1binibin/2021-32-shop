@@ -1,12 +1,14 @@
 import React from 'react';
 
-import styled, { media } from '../../style';
+import styled, { color, media } from '../../style';
 
 import ImageCp from '../common/ImageCp';
 import VideoCp from '../common/VideoCp';
+import ButtonCp from '../common/ButtonCp';
 import { filePath } from '../../modules/util';
 
 const Wrapper = styled.li`
+  position: relative;
   cursor: pointer;
   width: 19%;
   margin: 0 1% 1% 0;
@@ -42,16 +44,30 @@ const ImageWrapper = styled.div`
   }
 `;
 
+const ButtonWrapper = styled.div`
+  padding: 0.5em;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+`;
+
 const PrdCp = ({ title, ProductFiles }) => {
   return (
     <Wrapper>
       <ImageWrapper>
         <ImageCp alt={title} src={filePath(ProductFiles[0].saveName)} width="100%" />
-        {ProductFiles[1].saveName.includes('.mp4') ? (
-          <VideoCp alt={title} src={filePath(ProductFiles[1].saveName)} width="100%" />
-        ) : (
-          <ImageCp alt={title} src={filePath(ProductFiles[1].saveName)} width="100%" />
-        )}
+        <div>
+          {ProductFiles[1].saveName.includes('.mp4') ? (
+            <VideoCp alt={title} src={filePath(ProductFiles[1].saveName)} width="100%" />
+          ) : (
+            <ImageCp alt={title} src={filePath(ProductFiles[1].saveName)} width="100%" />
+          )}
+          <ButtonWrapper>
+            <ButtonCp txt="ADD TO CART" w="100%" colorHover={color.info} bgHover={color.dark} bold="bold" />
+          </ButtonWrapper>
+        </div>
       </ImageWrapper>
     </Wrapper>
   );

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
 import styled from '../../style';
+import { bannerApi } from '../../modules/api';
 import BannerCp from './BannerCp';
-import { bannerApi } from './../../modules/api';
 
 const Wrapper = styled.section`
-  margin-top: 3em;
+  margin-top: 1em;
 `;
 
 const ParallaxCp = () => {
@@ -16,7 +16,6 @@ const ParallaxCp = () => {
       setBanner(data);
     })();
   }, []);
-
   return <Wrapper>{banner ? <BannerCp {...banner} /> : ''}</Wrapper>;
 };
 
