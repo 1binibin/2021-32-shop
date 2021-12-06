@@ -8,7 +8,6 @@ import ButtonCp from '../common/ButtonCp';
 import FavoriteCp from '../common/FavoriteCp';
 import LocationCp from './LocationCp';
 import { filePath } from '../../modules/util';
-import { Favorite } from '@mui/icons-material';
 
 const Wrapper = styled.li`
   position: relative;
@@ -39,7 +38,7 @@ const InfoWrap = styled.div`
   align-items: flex-start;
 `;
 
-const FavoriteWrap = styled.div`
+const Favorite = styled(FavoriteCp)`
   position: absolute;
   top: 1em;
   left: 1em;
@@ -69,7 +68,7 @@ const ButtonWrapper = styled.div`
   left: 0;
 `;
 
-const PrdCp = ({ title, ProductFiles }) => {
+const PrdCp = ({ title, Cates, ProductFiles }) => {
   return (
     <Wrapper>
       <ImageWrapper>
@@ -85,9 +84,7 @@ const PrdCp = ({ title, ProductFiles }) => {
           </ButtonWrapper>
         </div>
       </ImageWrapper>
-      <FavoriteWrap>
-        <FavoriteCp size="1em" />
-      </FavoriteWrap>
+      <Favorite size="1em" />
       <InfoWrap>
         <LocationCp location="Surf - 남성의류" />
       </InfoWrap>

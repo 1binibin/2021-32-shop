@@ -1,5 +1,5 @@
-import React from 'react';
 import styled from '../../style';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Img = styled.img`
@@ -7,7 +7,7 @@ const Img = styled.img`
   max-width: ${(props) => (props.maxWidth ? '100%' : 'auto')};
 `;
 
-const ImageCp = ({ src, alt = 'banner', link, width = 'auto', maxWidth = false, className = '' }) => {
+const ImageCp = ({ link, src, alt = '', width = 'auto', maxWidth = false, className = '' }) => {
   return (
     <div className={className}>
       {link ? (
@@ -15,7 +15,7 @@ const ImageCp = ({ src, alt = 'banner', link, width = 'auto', maxWidth = false, 
           <Img src={src} alt={alt} />
         </Link>
       ) : (
-        <Img src={src} alt={alt} />
+        <Img src={src} alt={alt} width={width} />
       )}
     </div>
   );
