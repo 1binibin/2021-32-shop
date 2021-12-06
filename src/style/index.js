@@ -35,11 +35,12 @@ export const size = {
 };
 
 export const media = {
-  xl: ` (max-width: ${size.xl})`,
-  lg: ` (max-width: ${size.lg})`,
-  md: ` (max-width: ${size.md})`,
-  sm: ` (max-width: ${size.sm})`,
-  xs: ` (max-width: ${size.xs})`,
+  xxl: ` screen and (max-width: ${size.xxl})`,
+  xl: ` screen and (max-width: ${size.xl})`,
+  lg: ` screen and (max-width: ${size.lg})`,
+  md: ` screen and (max-width: ${size.md})`,
+  sm: ` screen and (max-width: ${size.sm})`,
+  xs: ` screen and (max-width: ${size.xs})`,
 };
 
 export const flex = ({ w = 'nowrap', h = 'flex-start', v = 'stretch' }) => {

@@ -1,7 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import HeaderCp from './components/inc/HeaderCp';
 import Main from './pages/Main';
 import AuthLogin from './pages/AuthLogin';
 import MyCart from './pages/MyCart';
