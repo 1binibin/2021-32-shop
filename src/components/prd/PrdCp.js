@@ -5,7 +5,9 @@ import styled, { color, media } from '../../style';
 import ImageCp from '../common/ImageCp';
 import VideoCp from '../common/VideoCp';
 import ButtonCp from '../common/ButtonCp';
+import FavoriteCp from '../common/FavoriteCp';
 import { filePath } from '../../modules/util';
+import { Favorite } from '@mui/icons-material';
 
 const Wrapper = styled.li`
   position: relative;
@@ -27,6 +29,12 @@ const Wrapper = styled.li`
     width: 97.5%;
     margin: 0 2.5% 2.5% 0;
   }
+`;
+
+const FavoriteWrap = styled.div`
+  position: absolute;
+  top: 1em;
+  left: 1em;
 `;
 
 const ImageWrapper = styled.div`
@@ -65,10 +73,13 @@ const PrdCp = ({ title, ProductFiles }) => {
             <ImageCp alt={title} src={filePath(ProductFiles[1].saveName)} width="100%" />
           )}
           <ButtonWrapper>
-            <ButtonCp txt="ADD TO CART" w="100%" colorHover={color.info} bgHover={color.dark} bold="bold" />
+            <ButtonCp txt="ADD TO CART" width="100%" colorHover={color.info} bgHover={color.dark} bold="bold" />
           </ButtonWrapper>
         </div>
       </ImageWrapper>
+      <FavoriteWrap>
+        <FavoriteCp size="1em" />
+      </FavoriteWrap>
     </Wrapper>
   );
 };

@@ -1,14 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from '../../style';
 
 const Button = styled.div`
   cursor: pointer;
+  width: 100%;
   display: inline-block;
   text-align: center;
   padding: 1em;
   border-radius: 5px;
-  width: ${(props) => props.w};
+  width: ${(props) => props.width};
   color: ${(props) => props.color};
   background-color: ${(props) => props.bg};
   border-width: 1px;
@@ -34,7 +35,7 @@ const ButtonCp = ({
   bgHover,
   border = '#000',
   borderHover,
-  w = 'auto',
+  width = 'auto',
   size = '1em',
   bold = 'normal',
 }) => {
@@ -42,19 +43,40 @@ const ButtonCp = ({
   colorHover = colorHover || color;
   bgHover = bgHover || bg;
   borderHover = borderHover || border;
+
+  const navigate = useNavigate();
+
+  const onEnter = useCallback(
+    (e) => {
+      e.target.innerText = txtHover;
+    },
+    [txtHover]
+  );
+
+  const onLeave = useCallback(
+    (e) => {
+      e.target.innerText = txt;
+    },
+    [txt]
+  );
+
+  const onClick = useCallback((e) => (link ? navigate(link) : null), [link, navigate]);
+
   return (
     <Button
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+      onClick={onClick}
       bg={bg}
       bgHover={bgHover}
       border={border}
       borderHover={borderHover}
-      w={w}
       color={color}
       colorHover={colorHover}
       size={size}
       bold={bold}
     >
-      {link ? <Link to={link}>{txt}</Link> : txt}
+      {txt}
     </Button>
   );
 };
