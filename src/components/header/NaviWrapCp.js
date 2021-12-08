@@ -12,7 +12,6 @@ const Wrapper = styled.ul`
 
 const NaviWrapCp = () => {
   const { allTree } = useSelector((state) => state.tree);
-  console.log(allTree);
   return (
     <Wrapper>
       <NaviCp data={allTree} type="A" />

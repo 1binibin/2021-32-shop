@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import styled, { color, media } from '../../style';
 
@@ -68,7 +69,21 @@ const ButtonWrapper = styled.div`
   left: 0;
 `;
 
-const PrdCp = ({ title, Cates, ProductFiles }) => {
+const PrdCp = ({ title, star: starData, price, priceOrigin, Cates, Color, Section, ProductFiles }) => {
+  /* state ********/
+  const [location, setLocation] = useState('Shop');
+  const [color, setColor] = useState([]);
+  const [section, setSection] = useState([]);
+  const [star, setStar] = useState(0.0);
+  const colors = useSelector((state) => state.color.allColor);
+  const sections = useSelector((state) => state.color.allSection);
+
+  /* 데이터 가공 ********/
+  useEffect(() => {
+    // 복잡한 곳
+  }, [colors, sections, Cates]);
+
+  /* render ********/
   return (
     <Wrapper>
       <ImageWrapper>
@@ -86,7 +101,7 @@ const PrdCp = ({ title, Cates, ProductFiles }) => {
       </ImageWrapper>
       <Favorite size="1em" />
       <InfoWrap>
-        <LocationCp location="Surf - 남성의류" />
+        <LocationCp />
       </InfoWrap>
     </Wrapper>
   );
