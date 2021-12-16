@@ -81,6 +81,7 @@ const PrdCp = ({ title, star: starData, price, priceOrigin, Cates, Color, Sectio
   /* 데이터 가공 ********/
   useEffect(() => {
     // 복잡한 곳
+    // let myColor = colors.filter(v => { })
   }, [colors, sections, Cates]);
 
   /* render ********/

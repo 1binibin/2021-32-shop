@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getAllTree } from './store/reducers/tree-slice';
+import { getAllColor } from './store/reducers/color-slice';
+import { getAllSection } from './store/reducers/section-slice';
 
 import Main from './pages/Main';
 import AuthLogin from './pages/AuthLogin';
@@ -12,6 +17,12 @@ import PrdList from './pages/PrdList';
 import PrdView from './pages/PrdView';
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllTree());
+    dispatch(getAllColor());
+    dispatch(getAllSection());
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <Routes>
