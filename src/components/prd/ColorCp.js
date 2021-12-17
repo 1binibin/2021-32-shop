@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from '../../style';
 
 const ColorWrap = styled.ul`
@@ -15,11 +15,15 @@ const Color = styled.li`
   background-color: ${(props) => props.color};
 `;
 
-const ColorCp = ({ colors }) => {
+const ColorCp = ({ colors, listenClick }) => {
+  const onClick = useCallback((e) => {
+    console.log(e.target);
+  }, []);
+
   return (
     <ColorWrap>
       {colors.map((v, i) => (
-        <Color color={v.code} key={i} />
+        <Color color={v.code} key={i} onClick={onClick} />
       ))}
     </ColorWrap>
   );
