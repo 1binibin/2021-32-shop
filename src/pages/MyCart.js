@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css, font, color } from '../style';
+import styled from '../style';
 import { useSearchParams } from 'react-router-dom';
 
 import TestNavi from '../components/TestNavi';

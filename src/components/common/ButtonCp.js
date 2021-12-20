@@ -28,7 +28,6 @@ const Button = styled.div`
 const ButtonCp = ({
   txt = 'button',
   txtHover,
-  link,
   color = '#000',
   colorHover,
   bg = 'transparent',
@@ -38,13 +37,15 @@ const ButtonCp = ({
   width = 'auto',
   size = '1em',
   bold = 'normal',
+  className,
+  onClick,
 }) => {
   txtHover = txtHover || txt;
   colorHover = colorHover || color;
   bgHover = bgHover || bg;
   borderHover = borderHover || border;
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const onEnter = useCallback(
     (e) => {
@@ -60,13 +61,10 @@ const ButtonCp = ({
     [txt]
   );
 
-  const onClick = useCallback((e) => (link ? navigate(link) : null), [link, navigate]);
-
   return (
     <Button
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      onClick={onClick}
       bg={bg}
       bgHover={bgHover}
       border={border}
@@ -75,6 +73,8 @@ const ButtonCp = ({
       colorHover={colorHover}
       size={size}
       bold={bold}
+      className={className}
+      onClick={onClick}
     >
       {txt}
     </Button>

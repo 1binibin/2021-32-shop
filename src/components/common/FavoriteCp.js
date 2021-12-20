@@ -29,7 +29,13 @@ const FavoriteCp = ({ size, className }) => {
   );
 
   return (
-    <Favorite className={className} size={size} onClick={onClick} like={like} color={color}>
+    <Favorite
+      className={className}
+      size={size}
+      onClick={onClick}
+      like={like}
+      color={color}
+    >
       <FavoriteBorder />
     </Favorite>
   );

@@ -8,7 +8,7 @@ const initialState = {
 };
 
 /** async action ******/
-export const getAllSection = createAsyncThunk('section/asyncSection', async (매개변수) => {
+export const getAllSection = createAsyncThunk('section/asyncSection', async () => {
   const url = process.env.REACT_APP_SECTION_URL;
   const { data } = await axios.get(url);
   return data;
@@ -26,12 +26,10 @@ export const sectionSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllSection.fulfilled, (state, { payload }) => {
-        // 리턴값 tree 19번줄
         state.allSection = payload;
       })
       .addCase(getAllSection.rejected, (state, { payload }) => {
-        console.log('reject', payload);
-        console.log(payload);
+        console.log('rejected', payload);
       });
   },
 });

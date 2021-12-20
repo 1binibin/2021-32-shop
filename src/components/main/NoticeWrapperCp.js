@@ -32,7 +32,7 @@ const notice = [
     title: 'Top Notch Customer Service',
     content: 'Phasellus lorem malesuada ligula cosmopolis',
     link: '/board/3',
-    button: 'Learn How',
+    button: 'Learn how',
   },
 ];
 

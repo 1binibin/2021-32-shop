@@ -7,7 +7,14 @@ const Img = styled.img`
   max-width: ${(props) => (props.maxWidth ? '100%' : 'auto')};
 `;
 
-const ImageCp = ({ link, src, alt = '', width = 'auto', maxWidth = false, className = '' }) => {
+const ImageCp = ({
+  link,
+  src,
+  alt = '',
+  width = 'auto',
+  maxWidth = false,
+  className = '',
+}) => {
   return (
     <div className={className}>
       {link ? (

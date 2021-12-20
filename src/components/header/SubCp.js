@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled, { Underline, color, AnimationWrapper } from '../../style';
 
 const ListWrap = styled(AnimationWrapper)`
-  min-width: 200px;
+  min-width: 240px;
   padding: 1.5em;
   position: absolute;
   top: 3em;

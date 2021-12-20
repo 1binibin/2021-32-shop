@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '../../style';
+import styled, { color } from '../../style';
 
 const ColorName = styled.div`
   width: 60px;

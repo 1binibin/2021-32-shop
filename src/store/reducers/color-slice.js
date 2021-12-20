@@ -8,7 +8,7 @@ const initialState = {
 };
 
 /** async action ******/
-export const getAllColor = createAsyncThunk('color/asyncColor', async (매개변수) => {
+export const getAllColor = createAsyncThunk('color/asyncColor', async () => {
   const url = process.env.REACT_APP_COLOR_URL;
   const { data } = await axios.get(url);
   return data;
@@ -26,12 +26,10 @@ export const colorSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllColor.fulfilled, (state, { payload }) => {
-        // 리턴값 tree 19번줄
         state.allColor = payload;
       })
       .addCase(getAllColor.rejected, (state, { payload }) => {
-        console.log('reject', payload);
-        console.log(payload);
+        console.log('rejected', payload);
       });
   },
 });

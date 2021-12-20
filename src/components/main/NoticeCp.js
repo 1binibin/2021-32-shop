@@ -1,16 +1,19 @@
 import React from 'react';
-import styled, { font, color } from '../../style';
+import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
-import Button from '@mui/material/Button';
+import styled, { font, color, media } from '../../style';
 
 const Wrapper = styled.section`
   width: 33.3333%;
   display: flex;
   align-items: center;
   padding: 4em;
+  @media ${media.md} {
+    width: 100%;
+    padding: 1.5em 1em;
+  }
 `;
-
 const Img = styled.div`
   width: 50px;
   margin-right: 30px;
@@ -18,23 +21,23 @@ const Img = styled.div`
     width: 100%;
   }
 `;
-
 const Content = styled.div`
   font-family: ${font.en};
 `;
 
 const Title = styled.h4`
   font-size: 1.25em;
+  font-weight: bold;
   margin-bottom: 1em;
 `;
 
 const Desc = styled.h4`
   font-size: 1em;
   color: ${color.lightBlack};
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 `;
 
-const NoticeCp = ({ title, src, content, link, button }) => {
+const NoticeWrapperCp = ({ title, src, content, link, button }) => {
   return (
     <Wrapper>
       <Img>
@@ -51,4 +54,4 @@ const NoticeCp = ({ title, src, content, link, button }) => {
   );
 };
 
-export default React.memo(NoticeCp);
+export default React.memo(NoticeWrapperCp);

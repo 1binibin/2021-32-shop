@@ -3,7 +3,7 @@ import { Search, FavoriteBorder } from '@mui/icons-material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import styled from '../../style';
 
-const MyPageCp = () => {
+const MypageCp = () => {
   return (
     <div>
       <Search />
@@ -13,4 +13,4 @@ const MyPageCp = () => {
   );
 };
 
-export default React.memo(MyPageCp);
+export default React.memo(MypageCp);

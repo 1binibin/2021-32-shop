@@ -1,8 +1,8 @@
-import React from 'react';
 import styled from '../../style';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const VideoCp = ({ src, alt = 'banner', link, width = 'auto', className = '' }) => {
+const VideoCp = ({ link, src, alt = '', width = 'auto', className = '' }) => {
   return (
     <div className={className}>
       {link ? (

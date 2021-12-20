@@ -5,10 +5,12 @@ export const Container = styled.div`
   max-width: 1632px;
   padding: 0 1em;
   margin: auto;
+  overflow: hidden;
 `;
 
 export const SmallContainer = styled(Container)`
   max-width: 1232px;
+  overflow: hidden;
 `;
 
 export const Underline = styled.div`

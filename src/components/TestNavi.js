@@ -10,6 +10,7 @@ const NaviWrap = styled.ul`
   border-bottom: 1px solid #999;
   list-style: none;
 `;
+
 const Navi = styled(Link)`
   padding: 0.5em;
   display: inline-block;
@@ -34,7 +35,7 @@ const TestNavi = () => {
         <Navi to="/order">My Order</Navi>
       </li>
       <li>
-        <Navi to="/withdrawal">My withdrawal</Navi>
+        <Navi to="/withdrawal">My WithDrawal</Navi>
       </li>
       <li>
         <Navi to="/pay">Payment</Navi>

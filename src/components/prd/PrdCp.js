@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import styled, { color, media, font } from '../../style';
+import styled, { color, font, media, css } from '../../style';
 import { filePath } from '../../modules/util';
 
 import ImageCp from '../common/ImageCp';
@@ -13,27 +13,34 @@ import TitleCp from './TitleCp';
 import PriceCp from './PriceCp';
 import ColorCp from './ColorCp';
 import ColorNameCp from './ColorNameCp';
+import StarCp from '../common/StarCp';
+import SectionCp from './SectionCp';
 
-const Wrapper = styled.li`
+const Wrapper = styled.div`
   position: relative;
   cursor: pointer;
-  width: 19%;
-  margin: 0 1% 1% 0;
-  @media ${media.lg} {
-    width: 24%;
-  }
-  @media ${media.md} {
-    width: 31.8333%;
-    margin: 0 1.5% 1.5% 0;
-  }
-  @media ${media.sm} {
-    width: 48%;
-    margin: 0 2% 2% 0;
-  }
-  @media ${media.xs} {
-    width: 97.5%;
-    margin: 0 2.5% 2.5% 0;
-  }
+  margin: 0 2%;
+  ${({ isList }) =>
+    isList &&
+    css`
+      width: 19%;
+      margin: 0 1% 1% 0;
+      @media ${media.lg} {
+        width: 24%;
+      }
+      @media ${media.md} {
+        width: 31.8333%;
+        margin: 0 1.5% 1.5% 0;
+      }
+      @media ${media.sm} {
+        width: 48%;
+        margin: 0 2% 2% 0;
+      }
+      @media ${media.xs} {
+        width: 97.5%;
+        margin: 0 2.5% 2.5% 0;
+      }
+    `}
 `;
 
 const InfoWrap = styled.div`
@@ -59,7 +66,17 @@ const ImageWrapper = styled.div`
   }
 `;
 
+const SectionWrapper = styled.div`
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
 const HoverImg = styled.div`
+  display: block;
   transition: opacity 0.5s;
   opacity: 0;
   &:hover {
@@ -74,69 +91,103 @@ const ButtonWrapper = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
+  transition: all 0.5s;
+  opacity: ${(props) => props.isEnter};
 `;
 
-const PrdCp = ({ title, star: starData, priceSale, priceOrigin, Cates, Colors, Sections, ProductFiles }) => {
+const PrdCp = ({
+  title,
+  star,
+  priceSale,
+  priceOrigin,
+  Cates,
+  Colors,
+  Sections,
+  ProductFiles,
+  isList,
+}) => {
   /* state ********/
   const [location, setLocation] = useState('Shop');
+  const [imgSrc, setImgSrc] = useState('');
   const [colorName, setColorName] = useState('');
   const [colorCode, setColorCode] = useState('');
-  const [isEnter, setIsEnter] = useState(false);
   // const [section, setSection] = useState([]);
+  const [isEnter, setIsEnter] = useState(0);
   const trees = useSelector((state) => state.tree.allTree);
 
   /* 데이터 가공 ********/
   useEffect(() => {
-    // location 변경
-    let cates = Cates[0].parents.split(',');
-    let _location = 'Shop ';
-    if (cates[0]) {
+    // location
+    // console.log(Cates, Colors);
+    let _location = 'Shop';
+    if (Cates.length) {
+      let cates = Cates[0].parents ? Cates[0].parents.split(',') : [];
       let data = trees.filter((v) => v.id === cates[0]);
       if (data.length) _location += ' - ' + data[0].title;
     }
     _location += ' - ' + Cates[0].name;
     setLocation(_location);
-    // colorName/Code 변경
+    // colorName/Code
     if (Colors.length) setColorName(Colors[0].name);
     if (Colors.length) setColorCode(Colors[0].code);
-  }, [Cates, trees, Colors]);
+    if (ProductFiles.length) setImgSrc(ProductFiles[0].saveName);
+  }, [Cates, trees, Colors, ProductFiles]);
 
-  /* event ********/
-  const listenClick = useCallback((_name, _color) => {
-    setColorCode(_color);
-    setColorName(_name);
-  }, []);
+  /* Event ********/
+  const listenClick = useCallback(
+    (_name, _color, _id) => {
+      setColorName(_name);
+      setColorCode(_color);
+      // 보여주기
+      if (_id == 0) setImgSrc(ProductFiles[0].saveName);
+      else if (_id < 4) setImgSrc(ProductFiles[Number(_id) + 1].saveName);
+      else setImgSrc(ProductFiles[4].saveName);
+    },
+    [ProductFiles]
+  );
 
   const onEnter = useCallback((e) => {
-    setIsEnter(true);
+    setIsEnter(1);
   }, []);
 
   const onLeave = useCallback((e) => {
-    setIsEnter(false);
+    setIsEnter(0);
   }, []);
 
   /* render ********/
   return (
-    <Wrapper onMouseEnter={onEnter} onMouseLeave={onLeave}>
+    <Wrapper onMouseEnter={onEnter} onMouseLeave={onLeave} isList={isList}>
       <ImageWrapper>
-        <ImageCp alt={title} src={filePath(ProductFiles[0].saveName)} width="100%" />
+        <ImageCp alt={title} src={filePath(imgSrc)} width="100%" />
         <HoverImg>
           {ProductFiles[1].saveName.includes('.mp4') ? (
-            <VideoCp alt={title} src={filePath(ProductFiles[1].saveName)} width="100%" />
+            <VideoCp
+              alt={title}
+              src={filePath(ProductFiles[1].saveName)}
+              width="100%"
+            />
           ) : (
-            <ImageCp alt={title} src={filePath(ProductFiles[1].saveName)} width="100%" />
+            <ImageCp
+              alt={title}
+              src={filePath(ProductFiles[1].saveName)}
+              width="100%"
+            />
           )}
         </HoverImg>
-        <ButtonWrapper>
+        <ButtonWrapper isEnter={isEnter}>
           <ButtonCp
             txt="ADD TO CART"
             width="100%"
             colorHover={color.info}
             bgHover={color.dark}
             bold="bold"
-            isEnter={isEnter}
           />
         </ButtonWrapper>
+        <SectionWrapper>
+          {Sections.map((v, i) => (
+            <SectionCp {...v} key={i} />
+          ))}
+        </SectionWrapper>
       </ImageWrapper>
       <Favorite size="1em" />
       <InfoWrap>
@@ -145,6 +196,7 @@ const PrdCp = ({ title, star: starData, priceSale, priceOrigin, Cates, Colors, S
           <TitleCp title={title} />
           {Colors.length ? <ColorNameCp name={colorName} code={colorCode} /> : ''}
         </div>
+        <StarCp point={star} />
         <PriceCp price={priceSale} />
         {Colors.length ? <ColorCp colors={Colors} listenClick={listenClick} /> : ''}
       </InfoWrap>
