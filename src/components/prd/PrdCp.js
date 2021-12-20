@@ -56,12 +56,14 @@ const ImageWrapper = styled.div`
     position: absolute;
     top: 0;
     opacity: 0;
-    transition: all 0.5s;
   }
+`;
+
+const HoverImg = styled.div`
+  transition: opacity 0.5s;
+  opacity: 0;
   &:hover {
-    & > :nth-of-type(2) {
-      opacity: 1;
-    }
+    opacity: 1;
   }
 `;
 
@@ -79,10 +81,9 @@ const PrdCp = ({ title, star: starData, priceSale, priceOrigin, Cates, Colors, S
   const [location, setLocation] = useState('Shop');
   const [colorName, setColorName] = useState('');
   const [colorCode, setColorCode] = useState('');
+  const [isEnter, setIsEnter] = useState(false);
   // const [section, setSection] = useState([]);
   const trees = useSelector((state) => state.tree.allTree);
-  const colors = useSelector((state) => state.color.allColor);
-  const sections = useSelector((state) => state.section.allSection);
 
   /* 데이터 가공 ********/
   useEffect(() => {
@@ -90,8 +91,8 @@ const PrdCp = ({ title, star: starData, priceSale, priceOrigin, Cates, Colors, S
     let cates = Cates[0].parents.split(',');
     let _location = 'Shop ';
     if (cates[0]) {
-      let [{ title: _title }] = trees.filter((v) => v.id === cates[0]);
-      _location += ' - ' + _title;
+      let data = trees.filter((v) => v.id === cates[0]);
+      if (data.length) _location += ' - ' + data[0].title;
     }
     _location += ' - ' + Cates[0].name;
     setLocation(_location);
@@ -101,25 +102,41 @@ const PrdCp = ({ title, star: starData, priceSale, priceOrigin, Cates, Colors, S
   }, [Cates, trees, Colors]);
 
   /* event ********/
-  const listenClick = useCallback((id) => {
-    console.log(id);
+  const listenClick = useCallback((_name, _color) => {
+    setColorCode(_color);
+    setColorName(_name);
+  }, []);
+
+  const onEnter = useCallback((e) => {
+    setIsEnter(true);
+  }, []);
+
+  const onLeave = useCallback((e) => {
+    setIsEnter(false);
   }, []);
 
   /* render ********/
   return (
-    <Wrapper>
+    <Wrapper onMouseEnter={onEnter} onMouseLeave={onLeave}>
       <ImageWrapper>
         <ImageCp alt={title} src={filePath(ProductFiles[0].saveName)} width="100%" />
-        <div>
+        <HoverImg>
           {ProductFiles[1].saveName.includes('.mp4') ? (
             <VideoCp alt={title} src={filePath(ProductFiles[1].saveName)} width="100%" />
           ) : (
             <ImageCp alt={title} src={filePath(ProductFiles[1].saveName)} width="100%" />
           )}
-          <ButtonWrapper>
-            <ButtonCp txt="ADD TO CART" width="100%" colorHover={color.info} bgHover={color.dark} bold="bold" />
-          </ButtonWrapper>
-        </div>
+        </HoverImg>
+        <ButtonWrapper>
+          <ButtonCp
+            txt="ADD TO CART"
+            width="100%"
+            colorHover={color.info}
+            bgHover={color.dark}
+            bold="bold"
+            isEnter={isEnter}
+          />
+        </ButtonWrapper>
       </ImageWrapper>
       <Favorite size="1em" />
       <InfoWrap>
