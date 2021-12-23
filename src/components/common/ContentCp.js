@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled, { color } from '../../style';
+import styled from '../../style';
 
 const Wrapper = styled.div`
   line-height: 1.75em;

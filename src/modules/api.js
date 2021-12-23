@@ -32,9 +32,7 @@ export const prdApi = async (options = {}) => {
     if (search) query += '&search=' + search;
     if (sort) query += '&sort=' + sort;
     if (page) query += '&page=' + page;
-    console.log(query);
     const { data } = await axios.get(process.env.REACT_APP_PRD_URL + query);
-    console.log(data);
     return data;
   } catch (err) {
     console.log(err);

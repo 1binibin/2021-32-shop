@@ -27,7 +27,6 @@ const Wrap = styled.div`
 `;
 
 const PrdWrapperCp = (props) => {
-  console.log(props);
   return (
     <Wrapper>
       <Wrap>

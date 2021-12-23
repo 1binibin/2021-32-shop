@@ -45,7 +45,6 @@ const slideConfig = {
 };
 
 const FeaturedPrdWrapperCp = (props) => {
-  console.log(props);
   return (
     <Wrapper>
       <Slider {...slideConfig}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled, { color, Underline } from '../../style';
+import styled, { Underline } from '../../style';
 
 const Wrapper = styled(Underline)`
   display: inline-block;
