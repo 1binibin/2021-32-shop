@@ -12,7 +12,7 @@ const Wrapper = styled.section`
 `;
 const TitleWrap = styled.div`
   font-family: ${font.en};
-  color: {color.dark}
+  color: ${color.dark};
   text-align: center;
   margin-bottom: 3em;
 `;

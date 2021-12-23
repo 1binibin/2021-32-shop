@@ -35,8 +35,8 @@ const Main = () => {
         <InstaWrapperCp model="insta" id="245" />
         <FeaturedPrdWrapperCp title="Featured Products" />
       </Container>
-      <BrandCp boardId="3" />
-      <FooterWrapperCp />
+      {/* <BrandCp boardId="3" />
+      <FooterWrapperCp /> */}
     </Wrapper>
   );
 };

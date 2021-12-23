@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { media, color, font } from '../../style';
+import styled, { font } from '../../style';
 
 const Ride = styled.div`
   margin: 0 1em;
