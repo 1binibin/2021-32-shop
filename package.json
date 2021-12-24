@@ -2,7 +2,7 @@
   "name": "32.shop",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://127.0.0.1:3100",
+  "proxy": "http://127.0.0.1:3300",
   "dependencies": {
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
